@@ -3,6 +3,18 @@ Data &amp; Code for "Decoding the Restrictive Coupling Mechanisms Between Cropla
 
 ---
 
+## 1. Raw CLCD Data (`01_Raw_Data`)
+
+- **Data source**: China Land Cover Dataset (CLCD)
+- **Study area**: Anhui Province, China
+- **Spatial resolution**: Original resolution (no resampling performed)
+- **Temporal coverage**: 2000, 2005, 2010, 2014, 2018, 2022
+- **Description**:
+  Raw land cover data for Anhui Province extracted from the original CLCD dataset using a study-area mask. 
+  The data are retained at the original resolution with no additional processing, and serve as the base data for subsequent cropland extraction and landscape pattern analysis.
+
+---
+
 ## 2. Cropland Raster Data (`02_Processed_Data`)
 
 - **Data source**: China Land Cover Dataset (CLCD)
