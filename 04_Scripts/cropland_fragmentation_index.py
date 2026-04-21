@@ -20,21 +20,21 @@ import os
 
 # ---------------------- ENVIRONMENT SETTINGS ----------------------
 # Set workspace (MODIFY THIS PATH BEFORE RUNNING)
-arcpy.env.workspace = r"D:\ZJJ\GD_CLF\2000"
+arcpy.env.workspace = r"D:\ZJJ\GD_CLF\2010"
 arcpy.env.overwriteOutput = True
 
 # ---------------------- INPUT RASTER LIST ----------------------
 # 9 landscape metrics input files
 raster_list = {
-    "NP": "NP_2000_180_1080.tif",
-    "PD": "PD_2000_180_1080.tif",
-    "LSI": "LSI_2000_180_1080.tif",
-    "DIVISION": "DIVISION_2000_180_1080.tif",
-    "AREA_MN": "AREA_MN_2000_180_1080.tif",
-    "PARA_MN": "PARA_MN_2000_180_1080.tif",
-    "CLUMPY": "CLUMPY_2000_180_1080.tif",
-    "COHESION": "COHESION_2000_180_1080.tif",
-    "AI": "AI_2000_180_1080.tif"
+    "NP": "NP_2010_180_1080.tif",
+    "PD": "PD_2010_180_1080.tif",
+    "LSI": "LSI_2010_180_1080.tif",
+    "DIVISION": "DIVISION_2010_180_1080.tif",
+    "AREA_MN": "AREA_MN_2010_180_1080.tif",
+    "PARA_MN": "PARA_MN_2010_180_1080.tif",
+    "CLUMPY": "CLUMPY_2010_180_1080.tif",
+    "COHESION": "COHESION_2010_180_1080.tif",
+    "AI": "AI_2010_180_1080.tif"
 }
 
 # ---------------------- MAIN PROCESSING ----------------------
