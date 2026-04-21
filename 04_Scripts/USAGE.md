@@ -4,7 +4,8 @@ This document provides a complete, reproducible workflow for the cropland fragme
 ---
 
 ## 📌 Overview of the Workflow
-![Workflow](04_Scripts/Fig. 2 Schematic representation of the comprehensive multiscale evaluation framework.png.png)
+![Workflow](Fig. 2 Schematic representation of the comprehensive multiscale evaluation framework.png)
+
 The analysis is structured into five main stages:
 1.  Cropland data acquisition and preprocessing
 2.  Determination of optimal landscape scale (granularity & amplitude)
