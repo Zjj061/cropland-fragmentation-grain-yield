@@ -45,6 +45,22 @@ Data &amp; Code for "Decoding the Restrictive Coupling Mechanisms Between Cropla
 
 ---
 
+## 4.Data Processing Scripts (`04_Scripts`)
+
+This folder contains Python scripts for raster processing, normalization, weight calculation, and final cropland fragmentation index generation.
+
+### Main Script: cropland_fragmentation_index.py
+- **Function**: 
+  - Normalizes 9 landscape metrics (positive/negative direction)
+  - Calculates indicator weights using entropy weight method
+  - Integrates all metrics into a single cropland fragmentation comprehensive index
+- **Scale**: 180m granularity, 1080m moving window
+- **Software**: ArcPy, NumPy
+- **Input**: Normalized landscape metrics raster data
+- **Output**: Cropland fragmentation composite index (GeoTIFF)
+
+---
+
 ## Notes
 - All raster data are in GeoTIFF format (`.tif`).
 - The optimal scale (180 m granularity / 1080 m amplitude) was determined through multi-scale analysis prior to moving window calculation.
