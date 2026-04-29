@@ -8,7 +8,7 @@ Data &amp; Code for "Decoding the Restrictive Coupling Mechanisms Between Cropla
 - **Data source**: China Land Cover Dataset (CLCD)
 - **Study area**: Anhui Province, China
 - **Spatial resolution**: Original resolution (no resampling performed)
-- **Temporal coverage**: 2000, 2005, 2010, 2014, 2018, 2022
+- **Temporal coverage**: 2010, 2014, 2018, 2022
 - **Description**:
   Raw land cover data for Anhui Province extracted from the original CLCD dataset using a study-area mask. 
   The data are retained at the original resolution with no additional processing, and serve as the base data for subsequent cropland extraction and landscape pattern analysis.
@@ -19,7 +19,7 @@ Data &amp; Code for "Decoding the Restrictive Coupling Mechanisms Between Cropla
 
 - **Data source**: China Land Cover Dataset (CLCD)
 - **Spatial resolution**: 180m (optimal granularity)
-- **Temporal coverage**: 2000, 2005, 2010, 2014, 2018, 2022
+- **Temporal coverage**: 2010, 2014, 2018, 2022
 - **Description**:
   Cropland pixel raster data extracted from the original CLCD dataset and resampled to the optimal grain size of 180 m. Non-cropland pixels are set to NoData.
 
@@ -29,7 +29,7 @@ Data &amp; Code for "Decoding the Restrictive Coupling Mechanisms Between Cropla
 
 - **Spatial resolution**: 180m (optimal granularity)
 - **Moving window size**: 1080m (optimal amplitude)
-- **Temporal coverage**: 2000, 2005, 2010, 2014, 2018, 2022
+- **Temporal coverage**: 2010, 2014, 2018, 2022
 - **Metrics included**:
   - AI (Aggregation Index)
   - AREA_MN (Mean Patch Area)
