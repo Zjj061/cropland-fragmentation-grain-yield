@@ -59,6 +59,51 @@ This folder contains Python scripts for raster processing, normalization, weight
 - **Input**: Normalized landscape metrics raster data
 - **Output**: Cropland fragmentation composite index (GeoTIFF)
 
+### Main Script: CLF_Coupling_Coordination_Spatial_Analysis.py
+- **Function**:
+  - Loads multi-temporal CLF, coupling degree (C), and coordination degree (D) raster data
+  - Classifies spatial levels using a standardized 5-level grading system
+  - Visualizes spatiotemporal evolution patterns across 2010, 2014, 2018, and 2022
+  - Identifies high-coupling and low-coordination critical regions
+  - Generates publication-quality spatial maps, trend charts, and statistical tables
+- **Scale**: 180m granularity, consistent with optimal analytical scale
+- **Software**: Python (NumPy, Matplotlib, Rasterio, SciPy)
+- **Input**: CLF.tif, C.tif, D.tif (four-year multi-temporal data)
+- **Output**:
+  - Spatiotemporal distribution maps (CLF / C / D)
+  - Temporal trend analysis figures
+  - Bivariate spatial visualization maps
+  - Summary statistics table (PNG)
+
+### Main Script: CLF_Coupling_Coordination_Generative_Simulation.py
+- **Function**:
+  - Fuses multi-year CLF, C, and D data to obtain long-term trend surfaces
+  - Simulates future cropland fragmentation under four scenarios (Restoration, Baseline, Trend, Extreme)
+  - Predicts 2030 spatial patterns using trend extrapolation and generative modeling
+  - Identifies critical high-coupling low-coordination regions
+  - Generates scenario comparison maps and zoomed hotspot maps
+- **Scale**: 180m granularity, consistent with optimal analytical scale
+- **Software**: Python (NumPy, Matplotlib, Rasterio, SciPy, Pandas)
+- **Input**: CLF.tif, C.tif, D.tif (four-year multi-temporal data)
+- **Output**:
+  - 4×4 multi-scenario spatial comparison maps
+  - Zoomed critical region visualization
+  - Classification proportion statistics (CSV)
+
+---
+
+## 5. Coupling & Coordination Analysis Data (05_Coupling_Coordination_Data)
+Spatial resolution: 180m
+Temporal coverage: 2010, 2014, 2018, 2022
+Format: GeoTIFF (.tif)
+Files:
+- CLF_YYYY.tif (Cropland Fragmentation Index)
+- C_YYYY.tif (Coupling Degree)
+- D_YYYY.tif (Coordination Degree)
+Description:
+Multi-temporal spatial datasets for the restrictive coupling-coordination analysis.
+These are the core inputs for the spatial visualization and scenario simulation scripts.
+
 ---
 
 ## Notes
