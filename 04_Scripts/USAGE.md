@@ -116,4 +116,76 @@ All steps in this study require the following software and packages:
 
 ---
 
+## 9. Stage (f) Spatial Visualization & Coupling Coordination Mapping
+### 9.1 Script: CLF_Coupling_Coordination_Spatial_Analysis.py
+This script performs spatiotemporal visualization and statistical analysis for cropland fragmentation (CLF), coupling degree (C), and coordination degree (D).
+
+**Input**:
+- Multi-temporal CLF, C, D raster data (2010, 2014, 2018, 2022) in `05_Coupling_Coordination_Data/`
+
+**Steps**:
+1. Place `CLF_YYYY.tif`, `C_YYYY.tif`, `D_YYYY.tif` in the root directory or specify the path in the script.
+2. Run the script directly using Python 3.7+.
+3. The script automatically loads, classifies, maps, and generates publication-quality figures.
+
+**Output**:
+- 4-year spatiotemporal distribution maps (3×4 panel)
+- Temporal trend charts of key indicators
+- Bivariate CLF–coordination spatial maps
+- Critical region identification
+- Statistical comparison table (PNG)
+- All figures saved to `visual_computing_output/`
+
+**Dependencies**:
+- numpy, matplotlib, rasterio, scipy, pandas
+
+---
+
+## 10. Stage (g) Multi‑Scenario Generative Simulation & Future Prediction
+### 10.1 Script: CLF_Coupling_Coordination_Generative_Simulation.py
+This script implements trend extrapolation, generative modeling, and multi‑scenario prediction for 2030 under four development pathways.
+**Input**:
+- Multi-temporal CLF, C, D raster data (2010, 2014, 2018, 2022) in `05_Coupling_Coordination_Data/`
+**Steps**:
+1. Ensure input rasters are placed correctly.
+2. Run the script to perform:
+   - Temporal trend calculation
+   - Weighted multi-year data fusion
+   - Four-scenario generative simulation (Restoration / Baseline / Trend / Extreme)
+   - Coupling-coordination feedback mechanism simulation
+   - Critical region detection and zoomed hotspot analysis
+3. Results are automatically exported as high-resolution figures and statistics.
+**Output**:
+- 4×4 multi-scenario spatial comparison maps
+- Zoomed critical region detail maps
+- Classification proportion statistics (`class_proportions.csv`)
+- All outputs saved to `output_top/`
+**Scenarios**:
+- Restoration (λ = -0.6): Ecological restoration and defragmentation
+- Baseline (λ = 0): Current trend continuation
+- Trend (λ = 1.0): Historical trend extrapolation
+- Extreme (λ = 1.6): High fragmentation pressure
+**Dependencies**:
+- numpy, matplotlib, rasterio, scipy, pandas
+
+---
+
+## 11. Full Output File Structure Summary
+| Folder/File | Description |
+|---|---|
+| `05_Coupling_Coordination_Data/` | CLF, coupling degree (C), coordination degree (D) for four years |
+| `output_top/` | Multi-scenario simulation figures and statistical tables |
+| `visual_computing_output/` | Spatiotemporal visualization and trend analysis figures |
+| `class_proportions.csv` | Classification area proportions under different scenarios |
+
+---
+
+## 12. Full Workflow Summary
+The complete reproducible pipeline:
+1. Data preprocessing → 2. Optimal scale determination → 3. CLF index calculation
+4. Grain yield spatialization → 5. Coupling-coordination modeling
+6. **Spatial visualization & mapping** → 7. **Multi-scenario generative prediction**
+
+---
+
 If you have questions about any step, please refer to the paper methodology section or contact the corresponding author.
