@@ -43,8 +43,11 @@ def load_tif(path, verbose=True):
             data = src.read(1).astype(np.float32)
             nodata = src.nodata if src.nodata is not None else -9999
         data[data == nodata] = np.nan
+        if verbose:
+            print(f"  ✓ Loaded: {os.path.basename(path)} | shape={data.shape} | range=[{np.nanmin(data):.3f}, {np.nanmax(data):.3f}]")
         return data
     except Exception as e:
+        print(f"  ✗ Failed: {path} | {str(e)}")
         return None
 
 def load_all(data_dir="./"):
@@ -139,8 +142,13 @@ def bivariate_map(F, D):
     return np.clip(rgb, 0, 1)
 
 def main():
+    print("\n" + "="*70)
+    print("TOP-JOURNAL GENERATIVE SIMULATION (2010-2022)")
+    print("="*70)
+
     clf, c, d = load_all()
     if clf[2022] is None:
+        print("\n❌ ERROR: No data!")
         return
 
     F = fuse(clf)
@@ -201,7 +209,7 @@ def main():
 
         ax1 = fig.add_subplot(gs[0, col_idx])
         ax1.imshow(f_cls, cmap=CLF_CMAP, vmin=0, vmax=4)
-        ax1.set_title(f'{name}\nCropland Fragmentation', fontsize=10, fontweight='bold', y=0.98)
+        ax1.set_title(f'{name}\nCoupling Degree', fontsize=10, fontweight='bold', y=0.98)
         ax1.axis('off')
         leg1 = [Patch(facecolor=CLF_CMAP(i), label=f'{CLF_CLASSES[i]}: {f_p[i]:.2%}') for i in range(5)]
         ax1.legend(handles=leg1, loc='upper center', bbox_to_anchor=(1, 1), 
@@ -284,13 +292,16 @@ def main():
         axes2[3,col].imshow(cr_zoom, cmap=ListedColormap(['white','red']), alpha=0.8)
         axes2[3,col].axis('off')
 
-    axes2[0,0].set_ylabel('Cropland Fragmentation', fontsize=14, fontweight='bold', labelpad=15)
-    axes2[1,0].set_ylabel('Coupling Degree', fontsize=14, fontweight='bold', labelpad=15)
-    axes2[2,0].set_ylabel('Coupling Coordination Degree', fontsize=14, fontweight='bold', labelpad=15)
-    axes2[3,0].set_ylabel('Critical Regions', fontsize=14, fontweight='bold', labelpad=15)
+    axes2[0,0].set_ylabel('Cropland Fragmentation', fontsize=14, fontweight='bold', fontfamily='Times New Roman', labelpad=15)
+    axes2[1,0].set_ylabel('Coupling Degree', fontsize=14, fontweight='bold', fontfamily='Times New Roman', labelpad=15)
+    axes2[2,0].set_ylabel('Coupling Coordination Degree', fontsize=14, fontweight='bold', fontfamily='Times New Roman', labelpad=15)
+    axes2[3,0].set_ylabel('Critical Regions', fontsize=14, fontweight='bold', fontfamily='Times New Roman', labelpad=15)
 
     plt.savefig("output_top/Fig_Zoomed_Critical_Region.png", dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
+
+    print(f"\n✅ All figures generated successfully!")
+    print("="*70)
 
 if __name__ == "__main__":
     main()
