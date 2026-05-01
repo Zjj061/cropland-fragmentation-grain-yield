@@ -37,8 +37,8 @@ COUPLING_CLASSES = {
 }
 
 COORDINATION_CLASSES = {
-    'Poor': [0.00, 0.20],
-    'Weak': [0.20, 0.40],
+    'Low': [0.00, 0.20],
+    'Poor': [0.20, 0.40],
     'Moderate': [0.40, 0.60],
     'Good': [0.60, 0.80],
     'High': [0.80, 1.00]
@@ -115,7 +115,7 @@ def classify_coupling(c_data, valid_mask):
 
 def classify_coordination(d_data, valid_mask):
     classified = np.full_like(d_data, np.nan, dtype=float)
-    class_labels = ['Poor', 'Weak', 'Moderate', 'Good', 'High']
+    class_labels = ['Low', 'Poor', 'Moderate', 'Good', 'High']
     thresholds = [0.00, 0.20, 0.40, 0.60, 0.80, 1.00]
     proportions = {}
     for i in range(5):
@@ -213,7 +213,7 @@ def create_4year_figure(data_list, output_dir='./output'):
 
         ax3 = fig.add_subplot(gs[2, col_idx])
         ax3.imshow(coordination_classified, cmap=COORDINATION_CMAP, vmin=0, vmax=4)
-        ax3.set_title(f'Coordination Degree ({year})', fontsize=10, fontweight='bold', y=0.98)
+        ax3.set_title(f'Coupling Coordination Degree ({year})', fontsize=10, fontweight='bold', y=0.98)
         ax3.axis('off')
         leg3 = [Patch(facecolor=COORDINATION_CMAP(i), label=f'{coord_labels[i]}: {coord_props[coord_labels[i]]:.2%}') for i in range(5)]
         ax3.legend(handles=leg3, loc='upper center', bbox_to_anchor=(1, 1), fontsize=8, framealpha=1, facecolor='white', borderaxespad=0.05)
@@ -375,15 +375,15 @@ def create_bivariate_2x3_figure(data_list, output_dir='./output'):
             hc, pc, rr = calculate_restrictive_coupling_ratio(d['c'], d['d'], cm)
             table_data.append([f"{year}", f"{hc:.2%}", f"{pc:.2%}", f"{rr:.2%}"])
         
-        col_labels = ["Year", "High Coupling\n(C≥0.6)", "Poor Coord\n(D≤0.4)", "Critical\nRegion"]
+        col_labels = ["Year", "High Coupling\n(C≥0.6)", "Poor Coordination\n(D≤0.4)", "Critical\nRegion"]
         
         stats_table = ax_stats.table(
             cellText=table_data,
             colLabels=col_labels,
             loc='upper center',
-            bbox=[0.05, 0.72, 1.4, 0.15],
+            bbox=[0.00, 0.72, 1.4, 0.15],
             cellLoc='center',
-            colWidths=[0.25, 0.38, 0.38, 0.38]
+            colWidths=[0.25, 0.60, 0.65, 0.45]
         )
         
         stats_table.auto_set_font_size(False)
