@@ -29,7 +29,7 @@ C_CLASSES = ['Low', 'Weak', 'Moderate', 'Strong', 'High']
 C_THRESH = [0.00, 0.20, 0.40, 0.60, 0.80, 1.00]
 C_CMAP = ListedColormap(['#deebf7', '#9ecae1', '#6baed6', '#3182bd', '#08519c'])
 
-D_CLASSES = ['Poor', 'Weak', 'Moderate', 'Good', 'High']
+D_CLASSES = ['Low', 'Poor', 'Moderate', 'Good', 'High']
 D_THRESH = [0.00, 0.20, 0.40, 0.60, 0.80, 1.00]
 D_CMAP = ListedColormap(['#fff5eb', '#fdd0a2', '#fdae6b', '#e6550d', '#a63603'])
 
@@ -184,7 +184,7 @@ def main():
             "Scenario": name,
             "CLF_Slight":f_p[0],"CLF_Low":f_p[1],"CLF_Moderate":f_p[2],"CLF_High":f_p[3],"CLF_Extreme":f_p[4],
             "C_Low":c_p[0],"C_Weak":c_p[1],"C_Moderate":c_p[2],"C_Strong":c_p[3],"C_High":c_p[4],
-            "D_Poor":d_p[0],"D_Weak":d_p[1],"D_Moderate":d_p[2],"D_Good":d_p[3],"D_High":d_p[4],
+            "D_Low":d_p[0],"D_Poor":d_p[1],"D_Moderate":d_p[2],"D_Good":d_p[3],"D_High":d_p[4],
             "Critical_Region": crit_p
         })
 
@@ -209,7 +209,7 @@ def main():
 
         ax1 = fig.add_subplot(gs[0, col_idx])
         ax1.imshow(f_cls, cmap=CLF_CMAP, vmin=0, vmax=4)
-        ax1.set_title(f'{name}\nCoupling Degree', fontsize=10, fontweight='bold', y=0.98)
+        ax1.set_title(f'{name}\nCropland Fragmentation', fontsize=10, fontweight='bold', y=0.98)
         ax1.axis('off')
         leg1 = [Patch(facecolor=CLF_CMAP(i), label=f'{CLF_CLASSES[i]}: {f_p[i]:.2%}') for i in range(5)]
         ax1.legend(handles=leg1, loc='upper center', bbox_to_anchor=(1, 1), 
